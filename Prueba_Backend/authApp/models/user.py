@@ -32,8 +32,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     password = models.CharField('Password', max_length = 256)
     name = models.CharField('Name', max_length = 30)
     email = models.EmailField('Email', max_length = 100)
-    telefono = models.CharField('Telefono', max_length = 15, null=True)
-    activo = models.CharField('Activo', max_length = 1, null=True)
+    telefono = models.CharField('Telefono', max_length = 30, default=None)
+    activo = models.CharField('Activo', max_length = 1, default='S')
+    
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN' 

@@ -18,5 +18,7 @@ def to_representation(self, obj):
             'username': user.username,
             'name': user.name,
             'email': user.email,
+            'telefono': user.telefono,
+            'activo': user.activo            
         
         }
