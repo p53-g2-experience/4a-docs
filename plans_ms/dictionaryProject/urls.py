@@ -13,22 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from rest_framework_simplejwt.serializers import TokenRefreshSerializer
+from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from dictionaryApp import views
-from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path('login/',TokenObtainPairView.as_view()),
+    path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
-    path('admin/', admin.site.urls),
-    path('word/', include('dictionaryApp.views.word.wordUrls')),
+#    path('admin/', admin.site.urls),
+#   path('word/', include('dictionaryApp.views.word.wordUrls')),
     path('word/', views.WordCreateView.as_view()),
     path('word/<int:pk>/', views.WordDetailsView.as_view()),
 ]
-
-admin.site.site_header = "Diccionario Indígena"
-urlpatterns = format_suffix_patterns(urlpatterns)
