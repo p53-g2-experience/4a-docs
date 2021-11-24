@@ -104,10 +104,10 @@ WSGI_APPLICATION = 'dictionaryProject.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'd2k4mp2md5ld0u',
-            'USER': 'yfeelyyynbwrrb',
-            'PASSWORD': '81426b1f18b269c6a7a07ae9366bf8ba4cb857a389a4bcaf0dddfe7e73b4da1d',
-            'HOST': 'ec2-52-200-68-5.compute-1.amazonaws.com',
+            'NAME': 'd5leh4vhh11j66',
+            'USER': 'qbxinymlffdxqz',
+            'PASSWORD': 'e3def9506e6e8faf5c04f7bc00e75d94f621ea27c9f5f68316355a3b0f6a5f8b',
+            'HOST': 'ec2-100-24-247-156.compute-1.amazonaws.com',
             'PORT': '5432',
         }
 }
