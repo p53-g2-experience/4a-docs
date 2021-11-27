@@ -7,7 +7,7 @@ from dictionaryApp.serializers.wordSerializer import WordSerializer
 
 
 class WordCreateView(views.APIView):
-    permission_classes = (IsAuthenticated,)
+#    permission_classes = (IsAuthenticated,)
     def post(self, request, *args, **kwargs):
         try:
             if  Functions_Global.is_Authenticated(request):
