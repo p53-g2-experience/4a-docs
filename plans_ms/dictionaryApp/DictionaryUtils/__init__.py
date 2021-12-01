@@ -1,1 +1,0 @@
-from .functions_global import Functions_Global

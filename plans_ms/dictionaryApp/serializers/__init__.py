@@ -1,1 +1,0 @@
-from .wordSerializer import WordSerializer
