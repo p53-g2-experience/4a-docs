@@ -1,7 +1,7 @@
 package co.misiontic.p53.planes_ms.models;
 
 import org.springframework.data.annotation.Id;
-import java.util.Date;
+//import java.util.Date;
 
 public class Comentarios {
     @Id
