@@ -37,7 +37,8 @@ public class ReservasController {
     Reservas userReservas(@PathVariable String username){
 
         /*List<Reservas> reservas = reservasRepository.findByUsername(username);*/
-        return reservasRepository.findById(username).orElseThrow(() -> new DisponibilidadReservaException("No se encontro reserva para el usuario: " + username));
+        return reservasRepository.
+                findById(username).orElseThrow(() -> new DisponibilidadReservaException("No se encontro reserva para el usuario: " + username));
     }
 
     @GetMapping("/reservas/consulta/{codigoPlan}")

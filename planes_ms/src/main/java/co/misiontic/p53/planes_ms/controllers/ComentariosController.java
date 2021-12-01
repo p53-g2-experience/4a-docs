@@ -31,6 +31,7 @@ public class ComentariosController {
 
     @GetMapping("/comentarios/{username}")
     Comentarios userComentarios(@PathVariable String username){
-        return comentariosRepository.findById(username).orElseThrow(() -> new ComentariosException("No se encontro reserva para el usuario: " + username));
+        return comentariosRepository.
+                findById(username).orElseThrow(() -> new ComentariosException("No se encontro reserva para el usuario: " + username));
     }
 }

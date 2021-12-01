@@ -14,23 +14,20 @@ public class PlanesController {
         this.planesRepository = planesRepository;
     }
 
-    //Un solo objeto
     @PostMapping("/planes")
     Planes newPlanes(@RequestBody Planes planes){
         return planesRepository.save(planes);
     }
 
-    //Un solo objeto
     @GetMapping("/planes/{codigoPlan}")
     Planes getPlanes(@PathVariable String codigoPlan) {
 
-        return planesRepository.findById(codigoPlan).orElseThrow(() -> new PlanesNotFoundException("No se encontro el código del plan: " + codigoPlan));
+        return planesRepository.
+        findById(codigoPlan).orElseThrow(() -> new PlanesNotFoundException("No se encontro el código del plan: " + codigoPlan));
+
+
     }
 
-    @DeleteMapping("/planes/{codigoPlan}")
-    void deletePlanes(@PathVariable String codigoPlan) {
-        planesRepository.deleteById(codigoPlan);
-    }
 }
 
 
