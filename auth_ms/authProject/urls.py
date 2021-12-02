@@ -21,7 +21,10 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
-    path('user/', views.UserCreateView.as_view()),
-    #path('user_all/', views.UserDetailView.as_view()),
+    path('user/', views.UserDetailView.as_view()),    
+    path('user/all/', views.UserListAllView.as_view()),        
+    path('user/create/', views.UserCreateView.as_view()),
+    path('user/delete/', views.UserDeleteView.as_view()),
+    path('user/update/', views.UserUpdateView.as_view()),        
     path('user/<int:pk>/', views.UserDetailView.as_view()),
 ]
