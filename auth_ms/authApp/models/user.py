@@ -33,6 +33,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField('Name', max_length = 30)
     email = models.EmailField('Email', max_length = 100)
     telefono = models.CharField('Telefono', max_length = 30, default=None)
+    
     activo = models.CharField('Activo', max_length = 1, default='S')
     
 
