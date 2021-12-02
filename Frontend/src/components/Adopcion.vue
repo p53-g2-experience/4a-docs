@@ -156,7 +156,7 @@ import axios from 'axios'
 
 
 <style>
-
+/* 
   .formularioAdop label{
     width: 100%;
     display: flex;
@@ -297,5 +297,5 @@ position: relative;
         font-weight: 500;
     }
 
-
+ */
 </style>

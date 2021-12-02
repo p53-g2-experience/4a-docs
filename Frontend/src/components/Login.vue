@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style>
-.contenedor_log{
+/* .contenedor_log{
     position: relative;
     background-color:  #091353;
     width: 100%;
@@ -121,5 +121,5 @@ export default {
     margin-left: 30px;
     position: absolute;
     display: flex;
-}
+} */
 </style>

@@ -32,7 +32,7 @@
 </script>
 
 <style>
-.targetmision{
+/* .targetmision{
     width: 40%;
     float: left;
 }
@@ -86,6 +86,6 @@ position: relative;
     padding: 0;
     }
 
-    
+     */
 
 </style>

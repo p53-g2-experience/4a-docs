@@ -228,7 +228,7 @@
 </script>
 
 <style>
-
+/* 
 h1{
     width: 100%;
     color: #9D84B7;
@@ -388,5 +388,5 @@ text-decoration: none;
         font-size: 20px;
         font-weight: 700;
 }
-
+ */
 </style>

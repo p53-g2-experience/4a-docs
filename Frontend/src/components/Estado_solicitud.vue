@@ -137,7 +137,7 @@ import axios from 'axios'
 </script>
 
 <style>
-
+/* 
 .estado{
     width: 100%;
     margin-bottom: 50px;    
@@ -236,5 +236,5 @@ import axios from 'axios'
         font-size: 18px;
         font-weight: 500;
     }
-
+ */
 </style>

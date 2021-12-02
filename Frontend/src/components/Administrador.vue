@@ -113,7 +113,7 @@ export default {
 </script>
 
 <style>
-.container_admin{
+/* .container_admin{
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -184,5 +184,5 @@ select{
 .link {
   cursor: pointer;
   color:rgb(34, 175, 34);
-}
+} */
 </style>

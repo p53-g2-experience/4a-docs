@@ -1,13 +1,14 @@
 <template>
   <div class='main' id="main">
 
-    <div class='header' id='header'>
+    <!-- <div class='header' id='header'>
       <img src="./assets/banner.jpg" alt="life experiences" srcset="">
       
         <button v-if="!isAuth" v-on:Click="loadLogin">Iniciar sesión</button>
         <button v-if="isAuth" v-on:Click="endSesion">Cerrar sesión</button>
       
-    </div> 
+    </div>  -->
+<!--  -->
     <div v-if="!isAuth" class="menu">
       <ul>        
         <li><router-link to="/home">Home</router-link></li>
@@ -15,6 +16,10 @@
         <li><router-link to="/mision">Misión</router-link></li>
         <li><router-link to="/donaciones">Donaciones</router-link></li>
         <li ><router-link to="/estado_solicitud">Estado solicitudes</router-link></li>
+        <li><div class="headerbot">
+    <button v-if="!isAuth" v-on:Click="loadLogin"><img src="../src/assets/close.png" style="width:30px" alt="Iniciar sesión"></button>
+        <button v-if="isAuth" v-on:Click="endSesion">Cerrar sesión</button>
+</div></li>
       </ul>
     </div>  
     
@@ -112,35 +117,20 @@ export default {
     width: 100%;   
   }
 
-  .header{
-    width: 100%;
-    display: flex;
-    margin: 0;
-    background-size: cover;
-    position: relative;
-    justify-content: center;
-    background-color: #091353 ;
-  }
+  
 
-  .header button{
-    /*display: block;*/
+  .headerbot button{
+   
     cursor: pointer;
-    position: absolute;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-    margin: 20px;
-    padding: 10px;
-    background-color: #091353 ;
+    background-color: #262626 ;
     border: none;
     border-radius: 10px ;
-    -webkit-box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
-    -moz-box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
-    box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
+    width: 20px;
     text-decoration: none;
     color: white;
   }
 
-  .header button:hover {
+  .headerbot button:hover {
     color: #B2F9FC;
     font-weight: 600;
   }
@@ -150,7 +140,7 @@ export default {
   width: 100%;
   height: 120px;
   margin: 0;
-  background-color: #9D84B7;   
+  background-color: #262626;   
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
 }
@@ -186,14 +176,13 @@ export default {
 ul {
   display: flex;
   list-style-type: none;
-  width: 80%;
+  width: 98%;
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   justify-content: space-around;
-  background-color:  #091353;
+  background-color:  #262626;
   padding: 15px;
-  border-radius: 7px;
+
 
 }
 
