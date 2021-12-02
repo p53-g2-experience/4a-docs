@@ -1,7 +1,7 @@
 from rest_framework import status, views
 from rest_framework.response import Response
 from authApp.models.user import User
-#from authApp.DictionaryUtils import Functions_Global
+from authApp.DictionaryUtils import Functions_Global
 from rest_framework.permissions import IsAuthenticated
 
 from authApp.serializers.userSerializer import UserSerializer
