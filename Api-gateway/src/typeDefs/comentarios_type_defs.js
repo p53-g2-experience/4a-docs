@@ -3,7 +3,7 @@ const comentariosTypeDefs = gql `
     type Comentarios {
         username: String!
         codigoPlan: String!
-        calificacion: Integer!
+        calificacion: Int!
         opinion: String!
     }
     extend type Query {

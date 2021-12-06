@@ -9,6 +9,7 @@ class PlanesAPI extends RESTDataSource {
         this.baseURL = serverConfig.planes_api_url;
     }
 
+/* 
 //>>> TABLA PLANES 
 
     //CREATEPLAN
@@ -63,36 +64,40 @@ class PlanesAPI extends RESTDataSource {
     async deleteComentarios(codigoPlan){
         return await this.delete(`/comentarios/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
     }
+ */
 
 //>>> TABLA RESERVAS
 
     //>>> TENER EN CUENTA RESERVABYUSERNAME
-    async reservasByUsername(codigoPlan) {
-        return await this.get(`/reservas/${codigoPlan}`);
-    }
-    //CREATERESERVAS
-    async createReservas(plan) {
-        plan = new Object(JSON.parse(JSON.stringify(plan)));
-        return await this.post(`/reservas/`, plan);
+    async reservasByUsername(username) {
+        return await this.get(`/reservas/${username}`);
     }
 
     //GETRESERVAS
-    async getReservas(codigoPlan) {
-        return await this.get(`/reservas/${codigoPlan}/`);
+    async getReservas() {
+        return await this.get(`/reservas/`);
     }
+
+    //CREATERESERVAS
+    async createReservas(reserva) {
+        reserva = new Object(JSON.parse(JSON.stringify(reserva)));
+        return await this.post(`/reservas/`, reserva);
+    }
+
+
 
     //UPDATE_RESERVAS
-    async updateReservas(codigoPlan){
-        codigoPlan = new Object(JSON.parse(JSON.stringify(codigoPlan)));
-        let codigoPlan = codigoPlan.id;
-        return await this.put(`/reservas/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+    async updateReservas(reserva){
+        reserva = new Object(JSON.parse(JSON.stringify(reserva)));
+            let username = reserva.username;
+        return await this.put(`/reservas/${username}/`, reserva); //mejorar esto en el microservicio
     }
-
+/* 
     //DELETE_RESERVAS
     async deleteReservas(codigoPlan){
         return await this.delete(`/reservas/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
     }
-
+ */
 }
 
 module.exports = PlanesAPI;

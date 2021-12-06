@@ -3,39 +3,19 @@ const reservasTypeDefs = gql `
     type Reservas {
         username                    : String!
         codigoPlan                  : String!
-        cantidadIntegrantes    : Integer!
-        fechaInicio                   : Date!
-        fechaFin                      : Date!
-        valorReserva               : Integer!
+        cantidadIntegrantes    : Int!
+        fechaInicio                   : String!
+        fechaFin                      : String!
+        valorReserva               : Int!
     }
 
-    type ReservasInput {
-        usernameOrigin           : String!
-        usernameDestiny        : String!
-        cantidadIntegrantes    : Integer!
-        fechaInicio                   : Date!
-        fechaFin                      : Date!
-        valorReserva               : Integer!
-    }
-
-    type ReservasUpdate {
-        id                                  :String!
-        usernameOrigin           : String!
-        usernameDestiny        : String!
-        cantidadIntegrantes    : Integer!
-        fechaInicio                   : Date!
-        fechaFin                      : Date!
-        valorReserva               : Integer!
-    }
-
-    type ReservasDelete {
-        id                                  :String!
-        usernameOrigin           : String!
-        usernameDestiny        : String!
-        cantidadIntegrantes    : Integer!
-        fechaInicio                   : Date!
-        fechaFin                      : Date!
-        valorReserva               : Integer!
+    input ReservasInput {
+        username                    : String!
+        codigoPlan                  : String!
+        cantidadIntegrantes    : Int!
+        fechaInicio                   : String!
+        fechaFin                      : String!
+        valorReserva               : Int!
     }
 
     extend type Query {
@@ -44,10 +24,9 @@ const reservasTypeDefs = gql `
 
     extend type Mutation{
         createReservas (reservas:ReservasInput!): Reservas
-        updateReservas (reservas:ReservasUpdate!): Reservas
+        updateReservas (reservas:ReservasInput!): Reservas
         deleteReservas (username:String!): String!
     }
-
 
 `;
 module.exports = reservasTypeDefs;

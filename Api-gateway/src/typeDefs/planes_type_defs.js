@@ -7,11 +7,11 @@ const planesTypeDefs = gql `
         plan_city: String
         plan_address: String!
         plan_category: String!
-        valorPlan: Integer!
-        plan_host_id: Integer!
+        valorPlan: Int!
+        plan_host_id: Int!
         plan_host_name: String!
-        plan_start_date: Date!
-        plan_end_date: Date!
+        plan_start_date: String!
+        plan_end_date: String!
         plan_image_path: String!
         plan_description: String!
         plan_requirements: String!
