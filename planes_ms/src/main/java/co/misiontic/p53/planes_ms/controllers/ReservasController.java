@@ -1,5 +1,7 @@
 package co.misiontic.p53.planes_ms.controllers;
 
+import java.util.List;
+
 import co.misiontic.p53.planes_ms.exceptions.PlanesNotFoundException;
 import co.misiontic.p53.planes_ms.exceptions.DisponibilidadReservaException;
 import co.misiontic.p53.planes_ms.models.Planes;
@@ -52,6 +54,34 @@ public class ReservasController {
         }
 
        return reservas;
+    }
+
+    //Actualizar reserva por usuario 
+    @PutMapping("/reservas/{username}")
+    Reservas replacePlan(@RequestBody Reservas newReserva, @PathVariable String username) {
+      return reservasRepository.findById(username)
+
+        .map(olderReserva -> {
+
+          olderReserva.setCantidadIntegrantes(newReserva.getCantidadIntegrantes()); 
+          olderReserva.setFechaInicio(newReserva.getFechaInicio()); 
+          olderReserva.setFechaFin(newReserva.getFechaFin());           
+
+          return reservasRepository.save(olderReserva);
+        })
+        .orElseThrow(() -> new DisponibilidadReservaException("No se ha encontrado ninguna reserva con el usuario:" + username));
+    }
+
+    //Eliminar comentario por usuario    
+    @DeleteMapping("/reservas/{username}")
+    void deleteReservas(@PathVariable String username) {
+        reservasRepository.deleteById(username);
+    }    
+
+    //Obtener todos los usuarios   
+    @GetMapping("/reservas")
+        List<Reservas> all() {
+      return reservasRepository.findAll();
     }
 
 
