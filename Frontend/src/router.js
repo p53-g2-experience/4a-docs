@@ -4,11 +4,11 @@ import Login from './components/Login.vue'
 import Home from './components/Home.vue'
 import Mision from './components/Mision.vue'
 import Donaciones from './components/Donaciones.vue'
-import Adopcion from './components/Adopcion.vue'
+import Planes from './components/Planes.vue'
 import Administrador from './components/Administrador.vue'
 import Administrador_solicitudes from './components/Administrador_solicitudes.vue'
 import Formulario_adopcion from './components/Formulario_adopcion.vue'
-import Estado_solicitud from './components/Estado_solicitud.vue'
+import Registro from './components/Registro.vue'
 
 const routes = [
   {
@@ -42,9 +42,9 @@ const routes = [
   },  
 
   {
-    path:'/adopcion',
-    name: 'Adopcion',
-    component: Adopcion
+    path:'/planes',
+    name: 'Planes',
+    component: Planes
   },
 
   {
@@ -67,9 +67,9 @@ const routes = [
 
   
   {
-    path:'/estado_solicitud',
-    name: 'Estado_solicitud',
-    component: Estado_solicitud
+    path:'/registro',
+    name: 'Registro',
+    component: Registro
   },
 ]
 

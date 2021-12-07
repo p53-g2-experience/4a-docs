@@ -1,5 +1,6 @@
 <template>
-    <div class="contenedor_log">
+    <div class="contenedor-global-log">
+
         <img v-on:Click="endSesion" src='../assets/close.png' alt="" class="close">
         <div class="login_admin">
             <h1>Login</h1>
@@ -59,29 +60,36 @@ export default {
 </script>
 
 <style>
-/* .contenedor_log{
-    position: relative;
-    background-color:  #091353;
-    width: 100%;
-    height: 100vh;
-    margin-top: -520px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
+
+.contenedor-global-log{
+    background-image: url(../assets/Fondo_registro.jpg);
+    margin-top: -50px;
+    background-size: cover;
+    height: 100vh;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: flex-start;
+    
+}
 .login_admin{
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 500px;
-    height: 300px;
-    margin-top: 100px;
+    height: 500px;
+   /*  margin-top: 100px; */
     margin-left: 400px;
     border-radius: 10px;
-    padding: 30px;
+    padding-top: -50px;
     position:absolute;
 }
-
+.login_admin h1{
+    padding: 5px;
+}
 .login_admin label{
     font-size: 18px;  
     display: flex;
@@ -96,7 +104,7 @@ export default {
 
 .ingresar{
     cursor: pointer;    
-    background-color:#9D84B7;
+    background-color:rgb(39, 39, 39);
     width: 80%;
     padding: 8px;
     margin-top: 30px;
@@ -117,9 +125,11 @@ export default {
 .close {    
     width: 30px;
     height: 30px;
-    margin-top: 30px;
+    margin-top: -80px;
     margin-left: 30px;
     position: absolute;
     display: flex;
-} */
-</style>
+} </style>
+
+
+

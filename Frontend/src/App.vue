@@ -12,12 +12,12 @@
     <div v-if="!isAuth" class="menu">
       <ul>        
         <li><router-link to="/home">Home</router-link></li>
-        <li><router-link to="/adopcion">Amigos que esperan hogar</router-link></li>
+        <li><router-link to="/planes">Planes</router-link></li>
         <li><router-link to="/mision">Misión</router-link></li>
-        <li><router-link to="/donaciones">Donaciones</router-link></li>
-        <li ><router-link to="/estado_solicitud">Estado solicitudes</router-link></li>
+        <!-- <li><router-link to="/donaciones">Donaciones</router-link></li> -->
+        <li ><router-link to="/registro">Registro</router-link></li>
         <li><div class="headerbot">
-    <button v-if="!isAuth" v-on:Click="loadLogin"><img src="../src/assets/close.png" style="width:30px" alt="Iniciar sesión"></button>
+    <button v-if="!isAuth" v-on:Click="loadLogin"><img src="../src/assets/login.png" style="width:30px" alt="Iniciar sesión"></button>
         <button v-if="isAuth" v-on:Click="endSesion">Cerrar sesión</button>
 </div></li>
       </ul>

@@ -2,15 +2,21 @@
       
       <div class="container">
         <h1>Misión</h1>
-         <img class="targetmision" src="https://i.postimg.cc/Y21h3VjH/MSION-Mesa-de-trabajo-1.jpg" alt="Compatitas misión">
+         
         <div class="mision">
-            <p >Buscamos ayudar a algunos de los cientos de mascotas que diariamente son 
-                abandonadas en las calles de nuestras ciudades, para brindarles una segunda oportunidad.
-            </p>
-            <p >
-    
-                Somos un grupo de entusiastas, que busca a través de la tecnología, 
-                aportar para mejorar las condiciones de vida de muchos animalitos, conectando sus historias con personas dispuestas a ayudar</p>
+            <p >Los planes turísticos dentro del país muchas veces están enfocados
+                 al turista extranjero, lo cual conlleva a que su valor sea elevado, muchas veces por 
+                 la habilidad del idioma que requieren los guías para los servicios, y que muchos de los
+                  planes sean actividades que son ya, muy bien conocidas por los locales y generalmente 
+                  ya han realizado por sus propios medios, por esta razón se quiere ofrecer una nueva 
+                  alternativa de turismo de experiencias en Colombia, enfocada principalmente a locales,
+                   turistas colombianos e incluso turistas extranjeros de habla hispana.</p>
+                  <p> Realizamos una
+                    plataforma web que ofrezce planes en diferentes regiones de Colombia, estos planes
+                     serán experiencias diferentes, poco comunes o conocidas que pueden disfrutar tanto 
+                     locales en un fin de semana, como los turistas que estén de visita, ofreciendo 
+                     experiencias gastronómicas, culturales, naturales y de otros aspectos a un precio
+                      justo con todos los usuarios. </p>
 
 
         </div>
@@ -27,57 +33,11 @@ export default {
 </script>
 
 <style>
-/* .targetmision{
-    width: 40%;
-    float: left;
-}
-.mision{
-    width: 60%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 .mision p{
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #606060;
         width: 100%;
         line-height: 30px;
-
-
 }
-h1{
-    width: 100%;
-    color: #9D84B7;
-    
-}
-.targetmision{
-    display: flex;
-    width: 30%;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    flex-direction: column;
-    -webkit-box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
--moz-box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
-box-shadow: 9px 10px 28px -17px rgba(0,0,0,0.75);
-position: relative;
-
-
-}
-.targetmision img{
-    width: 100%
-    
-}
-
-.nombre{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #9D84B7;
-    margin-top: -10px;
-    padding: 0;
-    }
-
-     */
 
 </style>
