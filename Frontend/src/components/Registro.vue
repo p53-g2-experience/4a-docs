@@ -4,7 +4,7 @@
 
 <div class="container_formulario_registro">
         <form id="contact">
-            <div class="colum2">
+            <div class="colum2registro">
                 <h1>Registro de clientes </h1>
                 <label for="nombre">Nombre</label>
                 <input type="text" v-model="newRequest.document_id">
@@ -22,7 +22,7 @@
                <input type="password" v-model="newRequest.reason">
             
                 
-                <button v-if='!requestCreated' v-on:Click="completeRequest" class="enviar_solicitud" id="enviar_solicitud">Enviar</button> 
+                <button v-if='!requestCreated' v-on:Click="completeRequest" class="enviar_solicitud_registro" id="enviar_solicitud">Enviar</button> 
         </div>
 
 
@@ -185,19 +185,19 @@ import axios from 'axios'
     
 }
 
-label{
+.colum2registro label{
     width: 100%;
     display: flex;
     align-items: flex-start;
     padding: 7px;
     color: #606060;
 }
- input{
+ .colum2registro input{
     width: 100%;
     padding: 3px;
 } 
 
- .colum2{
+ .colum2registro{
 float: left;
 margin-top: 10px;
 padding-right: 5%;
@@ -210,13 +210,13 @@ flex-direction: column;
 }
 
 
-.colum2 textarea{
+.colum2registro textarea{
 width: 100%;
 height: 80px;
 
 } 
 
-.enviar_solicitud{
+.enviar_solicitud_registro{
     cursor: pointer;    
     background-color:#FFC700;
     width: 100%;
@@ -232,44 +232,5 @@ height: 80px;
 }
 
 
-
-.backHome{
-    margin-left:40%;
-}
-
-
-
-.tarjeta_formulario{
-    display: flex;
-    width: 100%;
-    height: auto;
-    margin-top: 60px;
-
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: left;
-position: relative;
-
-
-}
-.tarjeta_formulario img{
-    width: 100%
-    
-}
-
-.nombre{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color:#1f1f1f;
-    margin-top: -10px;
-    padding: 0;
-    }
-
-    .info{
-        color: #606060;
-        padding: 0;
-        margin-top: -25px;
-    }
 
 </style>

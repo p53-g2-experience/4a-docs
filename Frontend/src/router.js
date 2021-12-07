@@ -7,7 +7,7 @@ import Donaciones from './components/Donaciones.vue'
 import Planes from './components/Planes.vue'
 import Administrador from './components/Administrador.vue'
 import Administrador_solicitudes from './components/Administrador_solicitudes.vue'
-import Formulario_adopcion from './components/Formulario_adopcion.vue'
+import Formulario_reservas from './components/Formulario_reservas.vue'
 import Registro from './components/Registro.vue'
 
 const routes = [
@@ -60,9 +60,9 @@ const routes = [
   },
 
   {
-    path:'/formulario_adopcion',
-    name: 'Formulario_adopcion',
-    component: Formulario_adopcion
+    path:'/formulario_reservas',
+    name: 'Formulario_reservas',
+    component: Formulario_reservas
   }, 
 
   

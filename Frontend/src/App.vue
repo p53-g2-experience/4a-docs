@@ -93,7 +93,7 @@ export default {
     },
 
     loadSolicitud: function(){       
-      this.$router.push({name: 'Formulario_adopcion'})
+      this.$router.push({name: 'Formulario_reservas'})
     },
 
     completedLogin: function(){
