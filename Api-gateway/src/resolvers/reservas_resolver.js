@@ -10,17 +10,17 @@ const reservasResolver = {
         }
     },
 
-/*     Mutation: {
-        createTransaction: async(_, { transaction }, { dataSources, userIdToken }) => {
+   Mutation: {
+        createReservas: async(_, { transaction }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
         if (transaction.usernameOrigin == usernameToken)
             return dataSources.accountAPI.createTransaction(transaction)
         else
             return null
-        
             } 
 
-        }*/
+            
+        }
     };
 
     module.exports = reservasResolver;

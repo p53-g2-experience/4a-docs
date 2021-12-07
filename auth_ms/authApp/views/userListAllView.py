@@ -6,7 +6,6 @@ from authApp.serializers import UserSerializer
 
 class UserListAllView(views.APIView):
 
-
     def get(self, request, *args, **kwargs):
      
         try:

@@ -84,20 +84,19 @@ class PlanesAPI extends RESTDataSource {
         return await this.post(`/reservas/`, reserva);
     }
 
-
-
     //UPDATE_RESERVAS
     async updateReservas(reserva){
         reserva = new Object(JSON.parse(JSON.stringify(reserva)));
             let username = reserva.username;
-        return await this.put(`/reservas/${username}/`, reserva); //mejorar esto en el microservicio
+        return await this.put(`/reservas/${username}`, reserva); //mejorar esto en el microservicio
     }
-/* 
+
     //DELETE_RESERVAS
-    async deleteReservas(codigoPlan){
-        return await this.delete(`/reservas/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+    async deleteReservas(reserva){
+        let username = reserva.username;
+        return await this.delete(`/reservas/${username}`, reserva); //mejorar esto en el microservicio
     }
- */
+
 }
 
 module.exports = PlanesAPI;

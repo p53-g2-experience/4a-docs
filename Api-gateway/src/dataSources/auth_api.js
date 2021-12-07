@@ -18,7 +18,7 @@ class AuthAPI extends RESTDataSource {
 
     //GETUSER
     async getUser(userId) {
-        return await this.get(`/user/${userId}/`);
+        return await this.get(`/user/${userId}`);
     }
 
     //AUTHREQUEST
@@ -37,13 +37,13 @@ class AuthAPI extends RESTDataSource {
     async updateUser(user){
         user = new user(JSON.parse(JSON.stringify(user)));
         let userId = user.id;
-        return await this.put(`/user/update/${userId}/`, user); //mejorar esto en el microservicio
+        return await this.put(`/user/update/${userId}`, user); //mejorar esto en el microservicio
     }
 
 
     //DELETE_USER
     async deleteUser(userId){
-        return await this.delete(`/user/delete/${userId}/`, user); //mejorar esto en el microservicio
+        return await this.delete(`/user/delete/${userId}`, user); //mejorar esto en el microservicio
     }
 }
 

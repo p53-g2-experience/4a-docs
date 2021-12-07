@@ -35,7 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     telefono = models.CharField('Telefono', max_length = 30, default=None)
     
     activo = models.CharField('Activo', max_length = 1, default='S')
-    
+
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN' 
