@@ -10,7 +10,12 @@
         <div class="colum1">         
                
                <div class="tarjeta_formulario">   
-                <div class="nombre"><p>{{this.pet.pet_name}}</p></div>
+                <div class="nombreypuntuacion">
+            <div class="nombre"><p>{{pet.pet_name}}</p></div>
+            <div class="puntuacion_home">
+                <img src="../assets/estrella.png" style="width:25px; height:25px" alt="puntuacion">
+                <p>{{pet.pet_age}}</p></div>
+                </div>
                 <div class="info"><p>{{this.pet.pet_age}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur iusto ex reprehenderit architecto, sit debitis nisi? 
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur iusto ex reprehenderit architecto, sit debitis nisi? 
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur iusto ex reprehenderit architecto, sit debitis nisi? 
@@ -56,29 +61,13 @@
                 <h1>Reservar</h1>
                 <label for="nombre">Nombre</label>
                 <input type="text" v-model="newRequest.applicant_name">
-                <label for="documento">N° Documento</label>
-                <input type="text" v-model="newRequest.document_id">
-                           
-                <label for="apellido" >Apellido</label>
-                <input type="text" v-model="newRequest.applicant_last_name">
-                <label for="edad">Edad</label>
+                
+                <label for="personas">Catidad de integrantes</label>
                 <input type="text" v-model="newRequest.applicant_age">
             
-                <label for="direccion">Direccion completa</label>
-                <input type="text" v-model="newRequest.address">
+                <label for="fecha inicio">Fecha inicio</label>
+                <input type="date" v-model="newRequest.address">
             
-                <label for="telefono">Teléfono</label>
-                <input type="text" v-model="newRequest.phone">
-                <label for="email">E-mail</label>
-                <input type="email" v-model="newRequest.email">
-            
-                <label for="ingresos">Ingresos</label>
-                <input type="text" v-model="newRequest.income">
-                <label for="actividad">Actividad economica</label>
-                <input type="text" v-model="newRequest.activity">
-           
-                <label for="razon">¿Por que desea adoptar?</label>
-                <textarea v-model="newRequest.reason"></textarea>
             
                 
                 <button v-if='!requestCreated' v-on:Click="completeRequest" class="enviar_solicitud" id="enviar_solicitud">Enviar</button> 
@@ -87,9 +76,8 @@
 
 
         </form>
-            <h2 v-if='requestCreated' >Gracias por tu solicitud</h2>
-            <p v-if='requestCreated' >Puedes consultar el estado de tu solicitud usando el codigo <b>{{this.code}}</b> en la sección <b> Estado solicitudes</b></p>
-            <button v-if='requestCreated' class="enviar_solicitud backHome" ><router-link to="/home">Volver a Home</router-link></button> 
+            <h2 v-if='requestCreated' >Gracias por tu reservar</h2>
+            
        
     </div>
 </div>
