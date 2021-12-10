@@ -16,7 +16,12 @@
             <img :src="pet.pet_image"/>
             </div>
             <div class="colum2pets">
+                <div class="nombreypuntuacion">
             <div class="nombre"><p>{{pet.pet_name}}</p></div>
+            <div class="puntuacion_home">
+                <img src="../assets/estrella.png" style="width:25px; height:25px" alt="puntuacion">
+                <p>{{pet.pet_age}}</p></div>
+                </div>
             <div class="info"><p>{{pet.pet_age}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur iusto ex reprehenderit architecto, sit debitis nisi? </p></div>
             
             <div class="costo"><b><p>{{pet.pet_description}}</p></b></div>
@@ -153,7 +158,7 @@
         color: #E73B3B;
         text-align: center;
         margin-top: 50px;
-        margin-bottom: 50px;
+        
     }
 
     .target{
@@ -182,6 +187,18 @@
         margin-right: 10px;
         
     }
+
+    .nombreypuntuacion{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        height: 60px;
+        align-items: flex-start;
+
+    }
+
+
+
     .target img{
         width: 100% ;
         float: left;  
@@ -190,6 +207,7 @@
   
 
     .nombre{
+       
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         font-size: 25px;
@@ -200,6 +218,32 @@
     .nombre p {
         padding-top: 0px;
         margin-top: 0px;
+    }
+
+    .puntuacion_home{
+         display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        background-color:rgb(255, 217, 0);
+        height: 30px;
+        margin-top: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 5px;
+        margin-top: -3px;
+    
+    }
+
+    .puntuacion_home p {
+        color: white;
+        padding-top: 0px;
+        margin-top: -2px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        font-size: 25px;
+        padding-left: 5px;
+
     }
 
     .info{

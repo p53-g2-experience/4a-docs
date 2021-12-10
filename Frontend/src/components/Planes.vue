@@ -38,7 +38,12 @@
             <img :src="pet.pet_image"/>
             </div>
             <div class="colum2pets">
+                <div class="nombreypuntuacion">
             <div class="nombre"><p>{{pet.pet_name}}</p></div>
+            <div class="puntuacion_home">
+                <img src="../assets/estrella.png" style="width:25px; height:25px" alt="puntuacion">
+                <p>{{pet.pet_age}}</p></div>
+                </div>
             <div class="info"><p>{{pet.pet_age}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur iusto ex reprehenderit architecto, sit debitis nisi? </p></div>
             
             <div class="costo"><b><p>{{pet.pet_description}}</p></b></div>
