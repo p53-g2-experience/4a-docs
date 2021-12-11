@@ -6,6 +6,7 @@ import java.util.Date;
 public class Planes {
     @Id
     private String codigoPlan;
+    private String authorPlan; // Obviously a author
     private String plan_title; // Obviously a title 
     private String plan_region; // it's a important element of our marketing
     private String plan_city; // A city for filter the address
@@ -20,10 +21,12 @@ public class Planes {
     private String plan_requirements;
     private Boolean plan_availability;
 
-    public Planes(String codigoPlan, String plan_title, String plan_region, String plan_city, String plan_address,
-            String plan_category, Integer valorPlan, Date plan_start_date, Date plan_end_date, String plan_image_path,
-            String plan_image2_path, String plan_description, String plan_requirements, Boolean plan_availability) {
+    public Planes(String codigoPlan, String authorPlan, String plan_title, String plan_region, String plan_city,
+            String plan_address, String plan_category, Integer valorPlan, Date plan_start_date, Date plan_end_date,
+            String plan_image_path, String plan_image2_path, String plan_description, String plan_requirements,
+            Boolean plan_availability) {
         this.codigoPlan = codigoPlan;
+        this.authorPlan = authorPlan;
         this.plan_title = plan_title;
         this.plan_region = plan_region;
         this.plan_city = plan_city;
@@ -37,6 +40,9 @@ public class Planes {
         this.plan_description = plan_description;
         this.plan_requirements = plan_requirements;
         this.plan_availability = plan_availability;
+
+
+        
     }
 
     public String getCodigoPlan() {
@@ -45,6 +51,14 @@ public class Planes {
 
     public void setCodigoPlan(String codigoPlan) {
         this.codigoPlan = codigoPlan;
+    }
+
+    public String getAuthorPlan() {
+        return authorPlan;
+    }
+
+    public void setAuthorPlan(String authorPlan) {
+        this.authorPlan = authorPlan;
     }
 
     public String getPlan_title() {
@@ -149,5 +163,8 @@ public class Planes {
 
     public void setPlan_availability(Boolean plan_availability) {
         this.plan_availability = plan_availability;
-    }    
+    }
+
+
+    
 }

@@ -3,6 +3,7 @@ const planesTypeDefs = gql `
 
     type Planes {
         codigoPlan: String!
+        authorPlan: String!
         plan_title: String!
         plan_region: String!
         plan_city: String
@@ -20,6 +21,7 @@ const planesTypeDefs = gql `
 
     input PlanesInput {
         codigoPlan: String!
+        authorPlan: String!
         plan_title: String!
         plan_region: String!
         plan_city: String

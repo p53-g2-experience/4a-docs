@@ -21,6 +21,18 @@ public class ComentariosController {
         this.comentariosRepository = comentariosRepository;
     }
 
+    //Obtener todos los usuarios   
+    @GetMapping("/comentarios")
+        List<Comentarios> all() {
+      return comentariosRepository.findAll();
+    }
+
+    //REVISAR
+    @GetMapping("/comentarios/{username}")
+    Comentarios userComentarios(@PathVariable String username){
+        return comentariosRepository.findById(username).orElseThrow(() -> new ComentariosException("No se encontro el comentario para el usuario: " + username));
+    }
+
     // Revisar la logica de este comentario
     @PostMapping("/comentarios")
     Comentarios newComentarios(@RequestBody Comentarios comentarios){
@@ -28,12 +40,6 @@ public class ComentariosController {
         if (planes == null)
             throw new PlanesNotFoundException("No se encontraron comentarios sobre el plan: " + comentarios.getCodigoPlan());
         return comentariosRepository.save(comentarios);
-    }
-
-    @GetMapping("/comentarios/{username}")
-    Comentarios userComentarios(@PathVariable String username){
-        return comentariosRepository.
-                findById(username).orElseThrow(() -> new ComentariosException("No se encontro reserva para el usuario: " + username));
     }
 
     //Actualizar comentario por usuario 
@@ -56,12 +62,6 @@ public class ComentariosController {
     void deleteComentarios(@PathVariable String username) {
         comentariosRepository.deleteById(username);
     }    
-
-    //Obtener todos los usuarios   
-    @GetMapping("/comentarios")
-        List<Comentarios> all() {
-      return comentariosRepository.findAll();
-    }
 
 }
 

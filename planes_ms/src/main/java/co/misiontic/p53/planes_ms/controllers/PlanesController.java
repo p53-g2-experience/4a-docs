@@ -46,6 +46,7 @@ public class PlanesController {
       return planesRepository.findById(codigoPlan)
         .map(olderPlan -> {
 
+          olderPlan.setAuthorPlan(newPlan2.getAuthorPlan());
           olderPlan.setPlan_title(newPlan2.getPlan_title());
           olderPlan.setPlan_region(newPlan2.getPlan_region());
           olderPlan.setPlan_city(newPlan2.getPlan_city());
