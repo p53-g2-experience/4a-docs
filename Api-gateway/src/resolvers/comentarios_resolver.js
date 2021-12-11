@@ -1,23 +1,40 @@
-const transactionResolver = {
+const comentariosResolver = {
+
     Query: {
-    transactionByUsername: async(_, { username }, { dataSources, userIdToken }) => {
-    usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-    if (username == usernameToken)
-    return dataSources.accountAPI.transactionByUsername(username)
-    else
-    return null
-    
-    }
+        comentariosByUsername: async(_, { usernameSend }, {dataSources, userIdToken}) => {
+            usernameGet = (await dataSources.authAPI.getUser(userIdToken)).username
+        if (usernameSend == usernameGet)
+            return dataSources.planesAPI.comentariosByUsername(usernameSend)
+        else
+            return null
+        }
     },
-    Mutation: {
-    createTransaction: async(_, { transaction }, { dataSources, userIdToken }) => {
-    usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-    if (transaction.usernameOrigin == usernameToken)
-    return dataSources.accountAPI.createTransaction(transaction)
-    else
-    return null
-    
+
+   Mutation: {
+
+            createComentarios: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.createComentarios(reservaSend)
+            else
+                return null 
+            } ,
+
+            updateComentarios: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.updateComentarios(reservaSend)
+            else
+                return null 
+            } ,
+
+            deleteComentarios: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.deleteComentarios(reservaSend)
+            else
+                return null 
+        } 
     }
-    }
-    };
-    module.exports = transactionResolver;
+};
+module.exports = comentariosResolver;

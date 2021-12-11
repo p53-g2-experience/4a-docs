@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server');
 const reservasTypeDefs = gql `
     type Reservas {
+        idReserva                   : String!
         username                    : String!
         codigoPlan                  : String!
         cantidadIntegrantes    : Int!

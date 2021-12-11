@@ -9,73 +9,78 @@ class PlanesAPI extends RESTDataSource {
         this.baseURL = serverConfig.planes_api_url;
     }
 
-/* 
+
 //>>> TABLA PLANES 
 
-    //CREATEPLAN
-    async createPlanes(codigoPlan) {
-        codigoPlan = new Object(JSON.parse(JSON.stringify(codigoPlan)));
-        return await this.post(`/planes/`, codigoPlan);
+    //GETPLANTODOS
+    async getPlanes() {
+        return await this.get(`/planes/`);
     }
 
     //GETPLAN
     async getPlanes(codigoPlan) {
-        return await this.get(`/planes/${codigoPlan}/`);
+        return await this.get(`/planes/${codigoPlan}`);
+    }
+
+    //CREATEPLAN
+    async createPlanes(plan) {
+        plan = new Object(JSON.parse(JSON.stringify(plan)));
+        return await this.post(`/planes/`, plan);
     }
 
     //UPDATE_PLAN
-    async updatePlanes(codigoPlan){
-        codigoPlan = new Object(JSON.parse(JSON.stringify(codigoPlan)));
-        let codigoPlan = codigoPlan.id;
-        return await this.put(`/planes/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+    async updatePlanes(plan){
+        plan = new Object(JSON.parse(JSON.stringify(plan)));
+        let codigoPlan = plan.codigoPlan;
+        return await this.put(`/planes/${codigoPlan}`, plan); //mejorar esto en el microservicio
     }
 
     //DELETE_PLAN
     async deletePlanes(codigoPlan){
-        return await this.delete(`/planes/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+        return await this.delete(`/planes/${codigoPlan}`); //mejorar esto en el microservicio
     }
 
 //>>> TABLA COMENTARIOS
 
     //>>> TENER EN CUENTA COMENTARIOSBYUSERNAME
 
-    async comentariosByUsername(codigoPlan) {
-        return await this.get(`/comentarios/${codigoPlan}`);
-    }
-    //CREATECOMENTARIOS
-    async createComentarios(codigoPlan) {
-        codigoPlan = new Object(JSON.parse(JSON.stringify(codigoPlan)));
-        return await this.post(`/comentarios/`, codigoPlan);
+    //GETCOMENTARIOSTODOS
+    async getComentarios() {
+        return await this.get(`/comentarios/`);
     }
 
-    //GETCOMENTARIOS
-    async getComentarios(codigoPlan) {
-        return await this.get(`/comentarios/${codigoPlan}/`);
+    async comentariosByUsername(username) {
+        return await this.get(`/comentarios/${username}`);
+    }
+
+    //CREATECOMENTARIOS
+    async createComentarios(comentario) {
+        comentario = new Object(JSON.parse(JSON.stringify(comentario)));
+        return await this.post(`/comentarios/`, comentario);
     }
 
     //UPDATE_COMENTARIOS
-    async updateComentarios(codigoPlan){
-        codigoPlan = new Object(JSON.parse(JSON.stringify(codigoPlan)));
-        let codigoPlan = codigoPlan.id;
-        return await this.put(`/comentarios/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+    async updateComentarios(comentario){
+        comentario = new Object(JSON.parse(JSON.stringify(comentario)));
+        let username = comentario.username;
+        return await this.put(`/comentarios/${username}`, comentario); //mejorar esto en el microservicio
     }
 
     //DELETE_COMENTARIOS
-    async deleteComentarios(codigoPlan){
-        return await this.delete(`/comentarios/${codigoPlan}/`, codigoPlan); //mejorar esto en el microservicio
+    async deleteComentarios(username){
+        return await this.delete(`/comentarios/${username}`); //mejorar esto en el microservicio
     }
- */
+ 
 
 //>>> TABLA RESERVAS
-
-    //>>> TENER EN CUENTA RESERVABYUSERNAME
-    async reservasByUsername(username) {
-        return await this.get(`/reservas/${username}`);
-    }
 
     //GETRESERVAS
     async getReservas() {
         return await this.get(`/reservas/`);
+    }
+    //>>> TENER EN CUENTA RESERVABYUSERNAME
+    async reservasByUsername(username) {
+        return await this.get(`/reservas/${username}`);
     }
 
     //CREATERESERVAS
@@ -92,11 +97,9 @@ class PlanesAPI extends RESTDataSource {
     }
 
     //DELETE_RESERVAS
-    async deleteReservas(reserva){
-        let username = reserva.username;
-        return await this.delete(`/reservas/${username}`, reserva); //mejorar esto en el microservicio
+    async deleteReservas(username){
+        return await this.delete(`/reservas/${username}`); //mejorar esto en el microservicio
     }
-
 }
 
 module.exports = PlanesAPI;

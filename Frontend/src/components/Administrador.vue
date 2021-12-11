@@ -1,16 +1,16 @@
 <template>
-  <div>     
+     
       
       <div class="container_admin">  
-        <h1>Buzón de solicitudes</h1>
+        <h1>Reservas</h1>
         <table class="solicitudes">
           <tr>
 
-            <th>Nombre Solicitante</th>
-            <th>Edad solicitante</th>
-            <th>Mascota</th>
-            <th>Más información</th>
-            <th>Estado</th>
+            <th>Nombre Reserva</th>
+            <th># de personas</th>
+            <th>Plan</th>
+            <th>Fecha</th>
+            <th>Teléfono</th>
 
           </tr>
 
@@ -18,8 +18,8 @@
             
             <td>{{solicitud.applicant_name + " " + solicitud.applicant_last_name}}</td>
             <td>{{solicitud.applicant_age}}</td>
-            <td>{{this.getPetName(solicitud.pet_id)}}</td>
-            <td v-on:Click="loadDetails(solicitud.request_id, solicitud.pet_id)" class="link">Ver más...</td>
+            <td>{{this.getPetName(solicitud.pet_id)}}</td><td>{{this.getPetName(solicitud.pet_id)}}</td>
+            <!-- <td v-on:Click="loadDetails(solicitud.request_id, solicitud.pet_id)" class="link">Ver más...</td> -->
             <td>
               {{solicitud.request_status}}
               <!--<select name="estado" >
@@ -31,8 +31,96 @@
             </td>
           </tr>
         </table>
+
+
+      <form id="contact">
+        <h1>Agregar Planes</h1>
+            <div class="colum_planes">
+                
+                <label for="codigo_plan">Código Plan</label>
+                 <input type="text"> <!--v-model="newRequest.applicant_name" -->
+                
+                <label for="ciudad_plan">Ciudad</label>
+                <input type="text"> <!-- v-model="newRequest.applicant_age" -->
+            
+                <label for="valor_plan">Valor Por Persona</label>
+                <input type="text"  >  <!--  v-model="newRequest.address"-->
+
+                 <label for="descripcion">Descripción</label>
+                <textarea> </textarea> <!--  v-model="newRequest.address"--> 
+
+                </div>  
+                 <div class="colum_planes"> 
+                
+                <label for="nombre_plan">Nombre Plan</label>
+                 <input type="text"> <!--v-model="newRequest.applicant_name" -->
+                
+                <label for="direccion_plan">Dirección</label>
+                <input type="text"> <!-- v-model="newRequest.applicant_age" -->
+            
+                <label for="imagen_plan">Link imagen</label>
+                <input type="text"  >    <!--  v-model="newRequest.address"-->
+
+                 <label for="requerimientos">Requerimientos</label>
+                <textarea> </textarea> <!--  v-model="newRequest.address"--> 
+
+                 </div>  
+                 <div class="colum_planes">
+                
+                <label for="region_plan">Región</label>
+                 <input type="text"> <!--v-model="newRequest.applicant_name" -->
+                
+              <label for="categoria_plan">Categoria</label>
+                <select name="categoria">
+
+                <option>Gastronomica</option>
+
+                <option>Turistica</option>
+
+                <option>Artistica</option>
+
+                <option>Aire libre</option>
+
+                <option>De aprendizaje</option>
+
+                </select>
+              
+            
+                <label for="banner_plan">Link Imagen Banner</label>
+                <input type="text"  >    <!--  v-model="newRequest.address"-->
+            
+            </div>  
+            
+                
+                <button v-if='!requestCreated' v-on:Click="completeRequest" class="crear_plan" id="crear_plan">Crear plan</button> 
+        
+
+
+
+        </form>
+            <h2 v-if='requestCreated' >Gracias por tu reservar</h2>
+
+            <form id="contact">
+        <h1>Eliminar Planes</h1>
+            <div class="colum_eliminar">
+                
+                <label for="nombre">Código Plan</label>
+                 <input type="text"> <!--v-model="newRequest.applicant_name" -->
+                
+            </div>
+            
+                
+                <button v-if='!requestCreated' v-on:Click="completeRequest" class="eliminar_plan" id="eliminar_plan">Borrar plan</button> 
+        
+
+
+
+        </form>
+            <h2 v-if='requestCreated' >Plan eliminado</h2>
+
+        
       </div> 
-    </div>
+    
 </template>
 
 <script>
@@ -113,7 +201,21 @@ export default {
 </script>
 
 <style>
-/* .container_admin{
+
+ .colum_planes{
+float: left;
+margin-top: 10px;
+margin-right: 0px;
+padding-left: 3%;
+width: 30%;
+display: flex;
+flex-direction: column;
+
+}
+
+
+
+ .container_admin{
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -121,6 +223,27 @@ export default {
     padding-bottom: 100px ;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
+}
+
+.container_admin form textarea{
+  height: 100px;
+}
+
+
+.crear_plan{
+    cursor: pointer;    
+    background-color:#FFC700;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    bottom: 15px;
+    border-radius: 5px;
+    border-style: none;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-decoration: none; 
+        font-size: 18px;
+        font-weight: 700;
 }
 
 .logout{
@@ -155,13 +278,13 @@ table{
 }
 th{
   border:solid 1px white;
-  background-color: #9D84B7;
+  background-color: #272727;
   color: white;
   margin: 0;
   padding: 10px;
 }
 td{
-  border:solid 1px #9D84B7;
+  border:solid 1px #272727;
   margin: 0;
   padding: 5px;
 }
@@ -181,8 +304,26 @@ select{
     font-size: 16px;
 }
 
-.link {
-  cursor: pointer;
-  color:rgb(34, 175, 34);
-} */
+.colum_eliminar{
+  width: 60%;
+  margin-right: 5%;
+  float: left;
+}
+
+.eliminar_plan{
+    cursor: pointer;    
+    background-color:#FFC700;
+    width: 35%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    bottom: 15px;
+    border-radius: 5px;
+    border-style: none;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-decoration: none; 
+        font-size: 18px;
+        font-weight: 700;
+        
+}
+
 </style>

@@ -1,26 +1,40 @@
 const reservasResolver = {
 
     Query: {
-        reservasByUsername: async(_, { username }, { dataSources, userIdToken}) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-        if (username == usernameToken)
-            return dataSources.planesAPI.reservasByUsername(username)
+        reservasByUsername: async(_, { usernameSend }, {dataSources, userIdToken}) => {
+            usernameGet = (await dataSources.authAPI.getUser(userIdToken)).username
+        if (usernameSend == usernameGet)
+            return dataSources.planesAPI.reservasByUsername(usernameSend)
         else
             return null
         }
     },
 
    Mutation: {
-        createReservas: async(_, { transaction }, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-        if (transaction.usernameOrigin == usernameToken)
-            return dataSources.accountAPI.createTransaction(transaction)
-        else
-            return null
-            } 
 
-            
-        }
-    };
+            createReservas: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.createReservas(reservaSend)
+            else
+                return null 
+            } ,
 
-    module.exports = reservasResolver;
+            updateReservas: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.updateReservas(reservaSend)
+            else
+                return null 
+            } ,
+
+            deleteReservas: async(_, { reservaSend }, { dataSources, userIdToken }) => {
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            if (reservaSend.username == usernameToken)
+                return dataSources.planesAPI.deleteReservas(reservaSend)
+            else
+                return null 
+        } 
+    }
+};
+module.exports = reservasResolver;
