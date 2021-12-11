@@ -52,11 +52,10 @@ public class PlanesController {
           olderPlan.setPlan_address(newPlan2.getPlan_address());
           olderPlan.setPlan_category(newPlan2.getPlan_category());
           olderPlan.setValorPlan(newPlan2.getValorPlan());
-          olderPlan.setPlan_host_id(newPlan2.getPlan_host_id());
-          olderPlan.setPlan_host_name(newPlan2.getPlan_host_name());
           olderPlan.setPlan_start_date(newPlan2.getPlan_start_date());
           olderPlan.setPlan_end_date(newPlan2.getPlan_end_date());
           olderPlan.setPlan_image_path(newPlan2.getPlan_image_path());
+          olderPlan.setPlan_image2_path(newPlan2.getPlan_image2_path());
           olderPlan.setPlan_description(newPlan2.getPlan_description());
           olderPlan.setPlan_requirements(newPlan2.getPlan_requirements());         
           olderPlan.setPlan_availability(newPlan2.getPlan_availability());                     

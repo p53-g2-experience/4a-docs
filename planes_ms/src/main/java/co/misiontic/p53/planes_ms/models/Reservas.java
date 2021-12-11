@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Reservas {
     @Id
+    private String idReserva;
     private String username;
     private String codigoPlan;
     private Integer cantidadIntegrantes;
@@ -20,6 +21,10 @@ public class Reservas {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.valorReserva = valorReserva;
+    }
+
+    public String getIdReserva() {
+        return idReserva;
     }
 
     public String getUsername() {
@@ -70,6 +75,7 @@ public class Reservas {
         this.valorReserva = valorReserva;
     }
 
-    
-    
+
+
+
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Comentarios {
     @Id
+    private String idComentario;
     private String username;
     private String codigoPlan;
     private Integer calificacion;
@@ -31,6 +32,10 @@ public class Comentarios {
 
     public void setOpinion(String opinion) {
         this.opinion = opinion;
+    }
+
+    public String getIdComentario(){
+        return idComentario;
     }
 
     public String getUsername() {

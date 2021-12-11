@@ -12,7 +12,6 @@ class UserDeleteView(views.APIView):
         try:
             if  Functions_Global.is_Authenticated(request):
                 user = User.objects.filter(id = kwargs['pk']).first()
-                userSerializer = UserSerializer(user)
                 user.delete()
                 return Response(status=status.HTTP_204_NO_CONTENT)
 

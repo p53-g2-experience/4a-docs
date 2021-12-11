@@ -12,19 +12,17 @@ public class Planes {
     private String plan_address; // it's necessary a specific place
     private String plan_category; // if it's a experience of coffee or photography
     private Integer valorPlan;
-    private Integer plan_host_id;
-    private String plan_host_name;
     private Date plan_start_date;
     private Date plan_end_date;
     private String plan_image_path;
+    private String plan_image2_path;
     private String plan_description;
     private String plan_requirements;
     private Boolean plan_availability;
 
     public Planes(String codigoPlan, String plan_title, String plan_region, String plan_city, String plan_address,
-            String plan_category, Integer valorPlan, Integer plan_host_id, String plan_host_name, Date plan_start_date,
-            Date plan_end_date, String plan_image_path, String plan_description, String plan_requirements,
-            Boolean plan_availability) {
+            String plan_category, Integer valorPlan, Date plan_start_date, Date plan_end_date, String plan_image_path,
+            String plan_image2_path, String plan_description, String plan_requirements, Boolean plan_availability) {
         this.codigoPlan = codigoPlan;
         this.plan_title = plan_title;
         this.plan_region = plan_region;
@@ -32,11 +30,10 @@ public class Planes {
         this.plan_address = plan_address;
         this.plan_category = plan_category;
         this.valorPlan = valorPlan;
-        this.plan_host_id = plan_host_id;
-        this.plan_host_name = plan_host_name;
         this.plan_start_date = plan_start_date;
         this.plan_end_date = plan_end_date;
         this.plan_image_path = plan_image_path;
+        this.plan_image2_path = plan_image2_path;
         this.plan_description = plan_description;
         this.plan_requirements = plan_requirements;
         this.plan_availability = plan_availability;
@@ -98,22 +95,6 @@ public class Planes {
         this.valorPlan = valorPlan;
     }
 
-    public Integer getPlan_host_id() {
-        return plan_host_id;
-    }
-
-    public void setPlan_host_id(Integer plan_host_id) {
-        this.plan_host_id = plan_host_id;
-    }
-
-    public String getPlan_host_name() {
-        return plan_host_name;
-    }
-
-    public void setPlan_host_name(String plan_host_name) {
-        this.plan_host_name = plan_host_name;
-    }
-
     public Date getPlan_start_date() {
         return plan_start_date;
     }
@@ -138,6 +119,14 @@ public class Planes {
         this.plan_image_path = plan_image_path;
     }
 
+    public String getPlan_image2_path() {
+        return plan_image2_path;
+    }
+
+    public void setPlan_image2_path(String plan_image2_path) {
+        this.plan_image2_path = plan_image2_path;
+    }
+
     public String getPlan_description() {
         return plan_description;
     }
@@ -160,9 +149,5 @@ public class Planes {
 
     public void setPlan_availability(Boolean plan_availability) {
         this.plan_availability = plan_availability;
-    }
-
-    
-    
-
+    }    
 }
