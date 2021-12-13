@@ -19,7 +19,7 @@ const authTypeDefs = gql `
         password: String!
         name: String!
         email: String!
-        balance: Int!
+        telefono: String!
     }
 
     type UserDetail {
@@ -28,6 +28,7 @@ const authTypeDefs = gql `
         password: String!
         name: String!
         email: String!
+        telefono: String!
     }
 
     type Mutation {

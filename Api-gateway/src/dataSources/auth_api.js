@@ -13,7 +13,7 @@ class AuthAPI extends RESTDataSource {
     //CREATEUSER
     async createUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
-        return await this.post(`/user/`, user);
+        return await this.post(`/user/create/`, user);
     }
 
     //GETUSER

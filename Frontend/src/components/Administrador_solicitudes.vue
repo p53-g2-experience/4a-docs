@@ -68,163 +68,44 @@
 </template>
 
 <script> 
-    import axios from 'axios'
-    
-    export default {
-        name: 'Administrador_solicitudes',  
+ 
+import gql from "graphql-tag";
+import jwt_decode from "jwt-decode";
 
-        data: function(){
-            return {  
-                labelEnded:"",
-                allRequest:"",
-                ended:"",
-                request:"",              
-                pet:"",     
-                requestUpdate:{                    
-                    activity: "",
-                    address: "",
-                    admin_id: "",
-                    applicant_age: "",
-                    applicant_last_name: "",
-                    applicant_name: "",
-                    document_id: "",
-                    email: "",
-                    income: "",
-                    pet_id: "",
-                    phone: "",
-                    reason: "",
-                    request_code: "",    
-                    request_status: ""
-                }           
-                          
+export default {
+    name: "Administrador_solicitudes",
+
+    data: function () {
+        return {
+            userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,
+            userDetailById: {
+                username: "",
+                name: "",
+                email: "",
+            },
+        };
+    },
+
+    apollo: {
+        userDetailById: {
+            query: gql`
+                query ($userId: Int!) {
+                    userDetailById(userId: $userId) {
+                        username
+                        name
+                        email
+                    }
+                }
+            `,
+            variables() {
+                return {
+                    userId: this.userId,
+                };
             }
         },
-
-        methods:{
-            
-            getAllRequest: async function(){
-                let id=localStorage.getItem('request')                
-                await axios.get('https://backend-compatitas.herokuapp.com/request/all', {headers: {}})
-                .then((result) => {                                  
-                    this.allRequest=result.data.data; 
-                })
-                .catch(() => {
-                    
-                });
-            },
-
-            getRequest: async function(){
-                let id=localStorage.getItem('request')                
-                await axios.get(`https://backend-compatitas.herokuapp.com/request/${id}`, {headers: {}})
-                .then((result) => {                                  
-                    this.request=result.data;  
-                    this.labelEnded=false;                   
-                })
-                .catch(() => {
-                    
-                });
-            },
-
-            getPet: async function(){    
-                let id=localStorage.getItem('pet')
-                await axios.get(`https://backend-compatitas.herokuapp.com/pet/${id}`, {headers: {}})
-                .then((result) => {   
-                this.pet=result.data                 
-                })
-                .catch(() => {
-                    alert('Error');
-                });                
-            },
-
-            updateRequest: async function(){                
-                if (document.getElementById('aceptada').selected){
-                    this.request.request_status="aceptada" 
-                    this.pet.pet_status="adoptado"
-                }else if (document.getElementById('rechazada').selected){
-                    this.request.request_status="rechazada" 
-                    this.pet.pet_status="disponible"               
-                }else{
-                    this.request.request_status="pendiente" 
-                    this.pet.pet_status="disponible"               
-                }               
-
-                await axios.put(`https://backend-compatitas.herokuapp.com/request/update/${this.request.request_id}`, this.request,{headers: {}})
-                .then((result) => {   
-                    alert(result.data)                 
-                })
-                .catch(  (error) => {
-                  console.log(error.response.data)
-                });
-
-                await axios.put(`https://backend-compatitas.herokuapp.com/pet/update/${this.pet.pet_id}`, this.pet,{headers: {}})
-                .then((result) => {   
-                    //alert(result.data)                 
-                })
-                .catch(  (error) => {
-                  console.log(error.response.data)
-                });                
-                
-                await this.getAllRequest()
-
-                for (var i=0;i<this.allRequest.length;i++){
-
-                    let id=this.allRequest[i].pet_id
-                    if (this.allRequest[i].request_id!=this.request.request_id){
-                        if(this.allRequest[i].pet_id==this.pet.pet_id){                            
-                            let requestId=this.allRequest[i].request_id  
-                            let auxRequest="";                         
-                            await axios.get(`https://backend-compatitas.herokuapp.com/request/${requestId}`, {headers: {}})
-                                .then((result) => {                                  
-                                    auxRequest=result.data; 
-                                    auxRequest.request_status="finalizada" 
-                                })
-                                .catch(() => {
-                                    
-                                });
-                            
-                            await axios.put(`https://backend-compatitas.herokuapp.com/request/update/${auxRequest.request_id}`, auxRequest,{headers: {}})
-                                .then((result) => {   
-                                    //alert(result.data)                 
-                                })
-                                .catch(  (error) => {
-                                console.log(error.response.data)
-                                });
-                            
-                        }
-                        
-                    }
-                     
-                }
-                
-
-            },
-
-            verifyState: function(sender,state){
-                if (sender==state){
-                return true
-                }else{
-                return false
-                }
-            },
-
-            verifyEnded: function(status){
-                //console.log(status)
-                if (this.request.request_status=="finalizada"){
-                    this.labelEnded=true
-                    return "finalizada"
-                }
-            }      
-            
-        },
-        
-        mounted:function(){
-            this.getRequest();
-        },
-
-        created: async function(){
-            this.getPet();
-        }
     }
+};
+
 </script>
 
 <style>
