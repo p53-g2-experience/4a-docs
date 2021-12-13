@@ -112,7 +112,7 @@ router.beforeEach(async (to, from) => {
 
     if (is_auth == to.meta.requiresAuth) return true
     if (is_auth) return { name: "home" };
-    return { name: "logIn" };
+    return { name: "experiencias" };
 })
 
 export default router;
