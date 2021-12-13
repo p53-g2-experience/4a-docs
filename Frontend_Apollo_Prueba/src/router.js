@@ -75,7 +75,7 @@ const router = createRouter({
 });
 
 const apolloClient = new ApolloClient({
-    link: createHttpLink({ uri: 'https://mision-tic-api-gateway.herokuapp.com/' }),
+    link: createHttpLink({ uri: 'https://api-gateway-p53-g2.herokuapp.com/' }),
     cache: new InMemoryCache()
 })
 
@@ -111,7 +111,7 @@ router.beforeEach(async (to, from) => {
     var is_auth = await isAuth();
 
     if (is_auth == to.meta.requiresAuth) return true
-    if (is_auth) return { name: "home" };
+    if (is_auth) return { name: "experiencias" };
     return { name: "experiencias" };
 })
 
