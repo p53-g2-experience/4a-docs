@@ -1,6 +1,8 @@
 <template>
   <div id="Experiencias">
+    
     <div class="slide"></div>
+    <div class="contenedor_planes">
             <h1>Vive una nueva experiencia</h1>
             <p>Selecciona una o varias de las siguientes opciones</p>
             <form action="" class="formularioBusqueda">
@@ -26,18 +28,71 @@
                 
             </form> 
 
-      <button class="banner">
-        <div class="banner3">
-          <div class="col1">
-            <h2>Experiencias Artisticas</h2>
-            <p>
-              Una nueva alternativa de turismo pensada para que todos puedan
-              vivir mas que un momento una experiencia de vida
-            </p>
-          </div>
-          <div class="col2"></div>
+            <div class="botonbuscar">
+                <button v-on:Click="selectPet" type="submit" class="buscarPlan" id="buscarPlan"><b>Buscar</b></button> 
+                </div>                
+      
+
+        
+               
+        <div id="planes" v-for="item in items" v-bind:key="item.id" class="target">
+            <button class="btn-adoptar" v-on:Click="loadSolicitud(item.id)">
+                <div class="colum1pets">
+            <img :src="item.plan_image_path"/>
+            </div>
+            <div class="colum2pets">
+                <div class="nombreypuntuacion">
+            <div class="nombre"><p>{{item.plan_title}}</p></div>
+            <div class="puntuacion_home">
+                <img src="../assets/estrella.png" style="width:25px; height:25px" alt="puntuacion">
+                <p>{{item.plan_estrellas}}</p></div>
+                </div>
+            <div class="info"><p>{{item.plan_description}}  </p></div>
+            
+            <div class="costo"><b><p>{{item.valor_plan}}</p></b></div>
+            <div class="decorate"></div>
+            </div>
+            
+            </button>
+            
+            </div>
+</div>
+<button class="banner"> 
+        <div class="banner1">
+            <div class="col1">
+                <h2>Experiencias  Gastronomicas</h2>
+                <p>Una nueva alternativa de turismo pensada para que todos puedan vivir mas que un momento una  experiencia de vida</p>
+            </div>
+            <div class="col2">
+                
+            </div>
         </div>
-      </button>
+        </button>
+
+        <button class="banner"> 
+        <div class="banner2">
+            <div class="col2">
+               
+            </div>
+            <div class="col1">
+                 <h2>Experiencias  Naturales</h2>
+                <p>Una nueva alternativa de turismo pensada para que todos puedan vivir mas que un momento una  experiencia de vida</p>
+            </div>
+        </div>
+        </button>
+
+
+      <button class="banner"> 
+        <div class="banner3">
+            <div class="col1">
+                <h2>Experiencias Artisticas</h2>
+                <p>Una nueva alternativa de turismo pensada para que todos puedan vivir mas que un momento una  experiencia de vida</p>
+            </div>
+            <div class="col2">
+                
+            </div>
+        </div>
+        </button> 
     </div>
 </template>
 
@@ -48,6 +103,100 @@ import gql from "graphql-tag";
 
 export default {
   name: "Experiencias",
+
+data: function () {
+    return {
+items: [
+      { id: 1,
+        plan_title: 'Experiencia Cafetera en la Tarde',
+        plan_region: 'Andina',
+        plan_category: 'Gatronomica',
+        valor_plan: 70000,
+        plan_image_path: "https://i.postimg.cc/BZVrq0p8/34aefd12-45c0-42e4-af2c-81b5a65ced81-1.jpg",
+        plan_description: 'Esta una experiencia enriquecedora en la cual vas a aprender a hacer tinto campesino y veras las formas tracionales para filtrarlo. Es de lo mejor no te lo pierdas.',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 5
+
+      },
+       { id: 2,
+        plan_title: 'Experiencia De Chocolatera Campesina',
+        plan_region: 'Andina',
+        plan_category: 'Gatronomica',
+        valor_plan: 7120000,
+        plan_image_path: 'https://i.postimg.cc/QM7Q4q56/chcolate.jpg',
+        plan_description: 'Esta experiencia te da la oportunidad de consumir algo nuevo para tu paladar chocolate con gran contenido de cacao tradicional campesino. arriesgate a probar algo nuevo.',
+        plan_host_name:'Andres salderriaga',
+        plan_estrellas: 4
+
+      },
+       { id: 3,
+        plan_title: 'Hacia la basilica de Monserrate',
+        plan_region: 'Andina',
+        plan_category: 'Turistica',
+        valor_plan: 120000,
+        plan_image_path: 'https://i.postimg.cc/9XPYG1t1/monserrate.jpg',
+        plan_description: 'Date la oportunidad de realizar un tour a las alturas, El santuario de monserate en su recorrido encontrarastiendas locales con artesanias y gastronomia.',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 3
+
+      },
+        { id: 4,
+        plan_title: 'Revela tradiciones y cocteleria artesanal',
+        plan_region: 'Andina',
+        plan_category: 'Turistica',
+        valor_plan: 150000,
+        plan_image_path: 'https://i.postimg.cc/mDbRDBY7/coctel.jpg',
+        plan_description: 'Retate a probar productos cocteleros artesanales en lugares que representan la cultura colombiana',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 5
+
+      },
+        { id: 5,
+        plan_title: 'Glaping en la naturaleza Boyaca',
+        plan_region: 'Andina',
+        plan_category: 'Turistica',
+        valor_plan: 250000,
+        plan_image_path: 'https://i.postimg.cc/25DThJLk/Glaping.jpg',
+        plan_description: 'Ven date la experiencia de vivir en la ruralidad, rodeado de naturaleza con gran diversidad de plantas que explorar.',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 4
+
+      },
+        { id: 6,
+        plan_title: 'Conociendo los Andes desde un caballo colombiano',
+        plan_region: 'Andina',
+        plan_category: 'Turistica',
+        valor_plan: 350000,
+        plan_image_path: 'https://i.postimg.cc/VLjJdLMV/caballo.jpg',
+        plan_description: 'Aprender a montar caballo.  mientras, exploras las montañas de los andes en un majestuoso caballo Colombiano.',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 5
+
+      },
+        { id: 7,
+        plan_title: 'Recorrido en cuatrimoto',
+        plan_region: 'Caribe',
+        plan_category: 'Turistica',
+        valor_plan: 400000,
+        plan_image_path: 'https://i.postimg.cc/6qKNSw38/cuatrimoto.jpg',
+        plan_description: 'Viaja en una poderosa cuatrimoto por las montañas para conocer las zonas del caribe y su naturaleza',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 2
+
+      },
+        { id: 8,
+        plan_title: 'Tour privado Yate',
+        plan_region: 'Pacifico',
+        plan_category: 'Turistica',
+        valor_plan: 450000,
+        plan_image_path: 'https://i.postimg.cc/wxnW9Fck/yate.jpg',
+        plan_description: 'Atraviesa  los mares con un yate con una vista en al oceano y la playa',
+        plan_host_name:'Juan Salgado',
+        plan_estrellas: 3
+
+      },
+    ]
+    }}
 
 /*   data: function () {
     return {
@@ -134,23 +283,95 @@ export default {
   },
 }; */
 };
+
+
 </script>
 
 
 <style>
-#Experiencias .slide {
+
+.contenedor_planes{
+  width: 80%;
+  margin: auto;
+}
+
+
+.formularioFilt label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+#Experiencias  .formularioFilt p{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#Experiencias .formularioFilt input{
+    display: inline-block;
+position: relative;
+top: 5px;
+border: 2px solid #ccc;
+width: 18px;
+height: 18px;
+background: #fff;
+}
+
+
+#Experiencias .formularioBusqueda{
+    width: 100%;
+ display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+#Experiencias .buscarPlan{
+  
+cursor: pointer;    
+        background-color:#c50808;
+        width: 50%;
+        padding: 8px;
+
+        bottom: 15px;
+   border-radius: 5px;
+   border-style: none;
+    
+   
+}
+
+#Experiencias .buscarPlan b {
+text-decoration: none;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+}
+#Experiencias .botonbuscar{
+   
+    width: 80%;
+    margin-left: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.slide {
   background-image: url(../assets/banner.jpg);
   background-position: center;
   background-size: cover;
   height: 400px;
   margin-top: -50px;
 }
-
-#Experiencias ul {
+ ul {
   display: flex;
 }
-
-#Experiencias .container {
+.container {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -161,67 +382,64 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#Experiencias h2 {
+h1 {
   width: 100%;
   color: #e73b3b;
   text-align: center;
   margin-top: 50px;
 }
-
-#Experiencias .target {
+.target {
   display: flex;
   width: 45%;
-  height: auto;
-  margin: 10px;
-  padding: 10px;
+height:180px;
+ 
+   margin: 10px;
+  padding: 10px; 
   border-radius: 3px;
   flex-direction: row;
-  align-items: center;
+  float: left;
   -webkit-box-shadow: 8px 8px 15px -17px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 8px 8px 15px -17px rgba(0, 0, 0, 0.65);
   box-shadow: 8px 8px 15px -17px rgba(0, 0, 0, 0.65);
-  position: relative;
+  position: relative; 
+  
 }
-
-#Experiencias .colum1pets {
+.colum1pets {
   width: 30%;
   margin-left: 5px;
   margin-right: 25px;
 }
-
-#Experiencias .colum2pets {
+.colum2pets {
   width: 70%;
   text-align: left;
   margin-right: 10px;
 }
-#Experiencias .nombreypuntuacion {
+.nombreypuntuacion {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 60px;
   align-items: flex-start;
 }
-
-#Experiencias .target img {
+.target img {
   width: 100%;
   float: left;
 }
 
-#Experiencias .nombre {
+.nombre {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 20px;
   color: #202020;
-  margin-top: 0px;
+  margin-top: 0px; 
   padding: 0;
 }
-
-#Experiencias .nombre p {
+.nombre p {
   padding-top: 0px;
   margin-top: 0px;
+ 
 }
-
-#Experiencias .puntuacion_home {
+.puntuacion_home {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -234,8 +452,7 @@ export default {
   border-radius: 5px;
   margin-top: -3px;
 }
-
-#Experiencias .puntuacion_home p {
+.puntuacion_home p {
   color: white;
   padding-top: 0px;
   margin-top: -2px;
@@ -244,29 +461,25 @@ export default {
   font-size: 25px;
   padding-left: 5px;
 }
-
-#Experiencias .info {
+.info {
   color: #606060;
   padding: 0;
-  margin-top: -25px;
+  margin-top: -10px;
 }
-
-#Experiencias .costo {
+.costo {
   color: #606060;
   padding: 0;
   text-align: right;
   font-size: 20px;
 }
-
-#Experiencias .btn-adoptar {
+.btn-adoptar {
   background: white;
   border-style: none;
   display: flex;
 
   flex-direction: row;
 }
-
-#Experiencias .decorate {
+.decorate {
   display: flex;
   align-content: flex-end;
   width: 100%;
@@ -274,21 +487,16 @@ export default {
   background-color: #00a3fe;
   margin-bottom: 0px;
 }
+.target button:hover {
 
-#Experiencias .target button:hover {
-  border: 1px solid #ffffff;
-  margin: -10px;
-  border-radius: 3px;
   cursor: pointer;
-}
-
-#Experiencias .banner {
+} 
+.banner {
   border: none;
   width: 100%;
   background-color: white;
 }
-
-#Experiencias .banner1 {
+.banner1 {
   width: 100%;
   height: 300px;
   background-color: #b81010;
@@ -300,27 +508,24 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
-
-#Experiencias .col1 {
+.col1 {
   width: 50%;
   color: #ffffff;
   font-size: 20px;
   text-align: center;
   padding-top: 50px;
 }
-
-#Experiencias .col1 p {
+.col1 p {
   padding-left: 50px;
   padding-right: 50px;
 }
-
-#Experiencias .banner1 .col2 {
+.banner1 .col2 {
   width: 50%;
   height: 300px;
   background: url(../assets/Gastronomía-1.jpg);
   background-size: cover;
 }
-#Experiencias .banner2 {
+.banner2 {
   width: 100%;
   height: 300px;
   background-color: #262626;
@@ -332,13 +537,13 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
-#Experiencias .banner2 .col2 {
+.banner2 .col2 {
   width: 50%;
   height: 300px;
   background: url(../assets/excursionista.jpg);
   background-size: cover;
 }
-#Experiencias .banner3 {
+.banner3 {
   width: 100%;
   height: 300px;
   background-color: #0079d0;
@@ -350,10 +555,10 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
-#Experiencias .banner3 .col2 {
+.banner3 .col2 {
   width: 50%;
   height: 300px;
   background: url(../assets/imagesart.jpg);
   background-size: cover;
-}
+} 
 </style>

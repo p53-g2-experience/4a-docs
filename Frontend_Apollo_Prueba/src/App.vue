@@ -5,11 +5,11 @@
       <h1>Life Experiences</h1>
       <nav>
 
-        <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
+       <!--  <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
         <button v-if="is_auth" v-on:click="loadAccount">Cuenta</button>
         <button v-if="is_auth" v-on:click="loadPlanes">Planes</button>
         <button v-if="is_auth" v-on:click="loadCategorias">Categorias</button>        
-        <button v-if="is_auth" v-on:click="loadTransaction">Transacción</button>
+        <button v-if="is_auth" v-on:click="loadTransaction">Transacción</button> -->
         <button v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
 
 
@@ -109,7 +109,7 @@ export default {
     },    
 
     loadTransaction: function () {
-      this.$router.push({ name: "transaction" });
+      this.$router.push({ name: "transaction"});
     },
 
     logOut: function () {
@@ -117,6 +117,7 @@ export default {
       alert("Sesión Cerrada");
       this.loadLogIn();
     },
+    
   },
 };
 </script>
@@ -128,27 +129,33 @@ export default {
 body{
     margin: 0;
     padding: 0;
-    width: 100%;   
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
   }
 
 .header {
   margin: 0%;
   padding: 0;
   width: 100%;
-  height: 10vh;
+  height: 20vh;
+
   min-height: 100px;
 
-  background-color: #283747;
+  background-color: #222222;
   color: #e5e7e9;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .header h1 {
   width: 20%;
   text-align: center;
+  margin-top: -35px;
+  margin-left: 35px;
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header nav {
@@ -159,31 +166,26 @@ body{
   justify-content: space-around;
   align-items: center;
 
-  font-size: 20px;
+  font-size: 35px;
 }
 
 .header nav button {
   color: #e5e7e9;
-  background: #283747;
-  border: 1px solid #e5e7e9;
+  background: #222222;
+  border: none;
 
   border-radius: 5px;
   padding: 10px 20px;
+  margin-top: -35px;
 }
 
 .header nav button:hover {
-  color: #283747;
+  color: #222222;
   background: #e5e7e9;
-  border: 1px solid #e5e7e9;
+ 
 }
 
-.main-component {
-  height: 75vh;
-  margin: 0%;
-  padding: 0%;
 
-  background: #fdfefe;
-}
 
 
 
@@ -191,7 +193,7 @@ body{
 .footer{
   width: 100%;
   height: 120px;
-  margin: 0;
+  bottom: 0;
   background-color: #262626;   
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
@@ -225,7 +227,7 @@ body{
   cursor: pointer;
 }
 
-ul {
+/* ul {
   display: flex;
   list-style-type: none;
   width: 98%;
@@ -236,9 +238,9 @@ ul {
   padding: 15px;
 
 
-}
+} */
 
-li a{
+/* li a{
   text-decoration: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
@@ -248,7 +250,7 @@ li a{
 li a:hover {
   color: #B2F9FC;
   font-weight: 600;
-}
+} */
 
 
 </style>

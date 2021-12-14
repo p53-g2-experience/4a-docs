@@ -31,7 +31,7 @@ const routes = [
     path: '/user/home',
     name: "home",
     component: Home,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true } 
 },
 {
     path: '/user/account',
@@ -44,7 +44,7 @@ const routes = [
     path: '/user/planes',
     name: "planes",
     component: Planes,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true } 
 },
 
 {
@@ -65,7 +65,7 @@ const routes = [
     path: '/user/transaction',
     name: "transaction",
     component: Transaction,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true } 
 }
 ];
 
@@ -111,7 +111,7 @@ router.beforeEach(async (to, from) => {
     var is_auth = await isAuth();
 
     if (is_auth == to.meta.requiresAuth) return true
-    if (is_auth) return { name: "experiencias" };
+    if (is_auth) return { name: "home" };
     return { name: "experiencias" };
 })
 

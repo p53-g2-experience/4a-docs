@@ -1,36 +1,39 @@
 <template>
-  <div class="signUp_user">
+<div class="contenedor-global-registro">
+ 
     <div class="container_signUp_user">
       <h2>Registrarse</h2>
-
+ <div class="signUp_user">
       <form v-on:submit.prevent="processSignUp">
+        <label for="Username">Nombre de usuario</label>
         <input type="text" v-model="user.username" placeholder="Usuario" />
         <br />
-
+        <label for="password">contraseña</label>
         <input
           type="password"
           v-model="user.password"
           placeholder="Contraseña"
         />
         <br />
-
+        <label for="nombre">Nombre</label>
         <input type="text" v-model="user.name" placeholder="Nombre" />
         <br />
-
+        <label for="email">E-mail</label>
         <input type="email" v-model="user.email" placeholder="Correo" />
         <br />
-
+        <label for="telefono">Teléfono</label>
         <input
-          type="number"
+          type="text"
           v-model="user.balance"
           placeholder="Saldo Inicial"
         />
         <br />
 
-        <button type="submit">Registrarse</button>
+        <button type="submit" class="registro">Registrarse</button>
       </form>
     </div>
   </div>
+</div>
 </template>
 
 
@@ -87,64 +90,91 @@ export default {
 
 
 <style>
-.signUp_user {
+
+ .signUp_user {
   margin: 0;
   padding: 0%;
   height: 100%;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+} 
 
-.container_signUp_user {
-  border: 3px solid #283747;
-  border-radius: 10px;
-  width: 25%;
-  height: 60%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .signUp_user h2 {
-  color: #283747;
+  color: #0068d6;
+  text-align: center;
 }
 
-.signUp_user form {
-  width: 70%;
-}
-
-.signUp_user input {
-  height: 40px;
-  width: 100%;
-
-  box-sizing: border-box;
-  padding: 10px 20px;
-  margin: 5px 0;
-
-  border: 1px solid #283747;
-}
-
-.signUp_user button {
-  width: 100%;
-  height: 40px;
-
-  color: #e5e7e9;
-  background: #283747;
-  border: 1px solid #e5e7e9;
-
-  border-radius: 5px;
-  padding: 10px 25px;
-  margin: 5px 0 25px 0;
-}
 
 .signUp_user button:hover {
   color: #e5e7e9;
-  background: crimson;
+  background: rgb(20, 113, 220);
   border: 1px solid #283747;
+} 
+
+
+
+.contenedor-global-registro{
+    background-image: url(../assets/Fondo_registro.jpg);
+    margin-top: -50px;
+    background-size: cover;
+    height: 100vh;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: flex-start;
+    
 }
+.container_signUp_user{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+   /*  margin-top: 100px; */
+    margin-left: 400px;
+    border-radius: 10px;
+    padding-top: -50px;
+    position:absolute;
+}
+.container_signUp_user h2{
+    padding: 5px;
+}
+.container_signUp_user label{
+    font-size: 18px;  
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.container_signUp_user input{
+    width: 100%;
+    height: 20px;
+}
+
+.registro{
+    cursor: pointer;    
+    background-color:rgb(39, 39, 39);
+    width: 80%;
+    padding: 8px;
+    margin-top: 30px;
+    margin-left: 10%;
+    bottom: 15px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+ .registro {
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+} 
+
 </style>
