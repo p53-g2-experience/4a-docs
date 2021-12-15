@@ -1,5 +1,5 @@
 <template>
-  <div id="transaccion">
+  <div id="Transaction">
      <div id="planes" v-for="item in items.slice(0,1)" v-bind:key="item.id" class="imagen_plan"> 
      <img :src="item.plan_image_path" class="imagen" style="width:100%; height:300px" /> 
      </div>
@@ -98,7 +98,7 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "Experiencias",
+  name: "Transaction",
 
 data: function () {
     return {
@@ -220,7 +220,7 @@ items: [
     methods: {
       loadTransaction: function(id){                
                 localStorage.setItem('item',id)
-                this.$emit('loadTransaction')
+                this.$emit('loadTransaction', id)
             },
     },
 
@@ -318,7 +318,7 @@ items: [
 
 
 
-#transaccion .imagen_plan{
+#Transaction .imagen_plan{
     width: 100%;
     height: 300px;
     margin-top: -40px;
@@ -327,7 +327,7 @@ items: [
 
 }
 
-#transaccion .container_formulario_adop{
+#Transaction .container_formulario_adop{
 
     margin: auto;
     width: 80%;
@@ -340,33 +340,33 @@ items: [
     
 }
 
-#transaccion label{
+#Transaction label{
     width: 100%;
     display: flex;
     align-items: flex-start;
     padding: 7px;
     color: #606060;
 }
-#transaccion input{
+#Transaction input{
     width: 100%;
     padding: 3px;
 } 
 
 
-#transaccion .colum1 textarea{
+#Transaction .colum1 textarea{
 
     width: 100%;
     height: 100px;
 
 }
 
-#transaccion .puntaje{
+#Transaction .puntaje{
     display: flex;
     justify-content: space-around;
     width: 50%;
     margin-left: 30px;
 }
-#transaccion .puntuacion_home_comment {
+#Transaction .puntuacion_home_comment {
   display: flex;
   width: 10%;
   flex-direction: row;
@@ -380,7 +380,7 @@ items: [
   border-radius: 5px;
   margin-top: -3px;
 }
-#transaccion .puntuacion_home_comment p {
+#Transaction .puntuacion_home_comment p {
   color: white;
   padding-top: 0px;
   margin-top: -2px;
@@ -389,20 +389,20 @@ items: [
   font-size: 25px;
   padding-left: 5px;
 }
-#transaccion .puntaje input{
+#Transaction .puntaje input{
     width: 50px;
     margin-left: 30px;
 
        
 }
 
-#transaccion .puntaje p{
+#Transaction .puntaje p{
     display: flex;
     flex-direction: row;
 }
 
 
-#transaccion .publicar{
+#Transaction .publicar{
     cursor: pointer;    
     background-color:#00B2EA;
     width: 200px;
@@ -419,16 +419,16 @@ items: [
         font-weight: 700;
 }
 
-#transaccion .feed_opiniones{
+#Transaction .feed_opiniones{
     width: 100%;
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
 }
-#transaccion .imagen_opinion{
+#Transaction .imagen_opinion{
     width: 10%;
 }
-#transaccion .texto_opinion{
+#Transaction .texto_opinion{
     width: 90%;
     padding-left: 20px;
     margin-top: -10px;
@@ -436,13 +436,13 @@ items: [
 }
 
 
-#transaccion .colum2 textarea{
+#Transaction .colum2 textarea{
 width: 100%;
 height: 80px;
 
 } 
 
-#transaccion .enviar_solicitud{
+#Transaction .enviar_solicitud{
     cursor: pointer;    
     background-color:#FFC700;
     width: 200px;
@@ -457,14 +457,14 @@ height: 80px;
         font-weight: 700;
 } 
 
-#transaccion .colum1{
+#Transaction .colum1{
 float: left;
 width: 60%;
 
 
 
 }
- #transaccion .colum2{
+ #Transaction .colum2{
 float: left;
 margin-top: 60px;
 margin-right: 0px;
@@ -519,14 +519,14 @@ position: relative;
    
 }
 
-#transaccion  .formularioFilt p{
+#Transaction  .formularioFilt p{
     width: 100%;
     display: flex;
     flex-direction: row;
     
 }
 
-#transaccion .formularioFilt input{
+#Transaction .formularioFilt input{
     display: inline-block;
 position: relative;
 top: 5px;
@@ -537,13 +537,13 @@ background: #fff;
 }
 
 
-#transaccion .formularioBusqueda{
+#Transaction .formularioBusqueda{
     width: 100%;
  display: flex;
     justify-content: space-around;
     margin: auto;
 }
-#transaccion .buscarPlan{
+#Transaction .buscarPlan{
   
 cursor: pointer;    
         background-color:#c50808;
@@ -557,14 +557,14 @@ cursor: pointer;
    
 }
 
-#transaccion .buscarPlan b {
+#Transaction .buscarPlan b {
 text-decoration: none;
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
         font-weight: 700;
 }
-#transaccion .botonbuscar{
+#Transaction .botonbuscar{
    
     width: 80%;
     margin-left: 30%;
@@ -602,7 +602,7 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-#transaccion .target {
+#Transaction .target {
   display: flex;
   width: 45%;
 height:180px;
@@ -628,19 +628,19 @@ height:180px;
   text-align: left;
   margin-right: 10px;
 } */
-#transaccion .nombreypuntuacion {
+#Transaction .nombreypuntuacion {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 60px;
   align-items: flex-start;
 }
-#transaccion .target img {
+#Transaction .target img {
   width: 100%;
   float: left;
 }
 
-#transaccion .nombre {
+#Transaction .nombre {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -648,12 +648,12 @@ height:180px;
   margin-top: 0px; 
   padding: 0;
 }
-#transaccion .nombre p {
+#Transaction .nombre p {
   padding-top: 0px;
   margin-top: 0px;
  
 }
-#transaccion .puntuacion_home {
+#Transaction .puntuacion_home {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -666,7 +666,7 @@ height:180px;
   border-radius: 5px;
   margin-top: -3px;
 }
-#transaccion .puntuacion_home p {
+#Transaction .puntuacion_home p {
   color: white;
   padding-top: 0px;
   margin-top: -2px;
@@ -675,25 +675,25 @@ height:180px;
   font-size: 25px;
   padding-left: 5px;
 }
-#transaccion .info {
+#Transaction .info {
   color: #606060;
   padding: 0;
   margin-top: -10px;
 }
-#transaccion .costo {
+#Transaction .costo {
   color: #606060;
   padding: 0;
   text-align: right;
   font-size: 20px;
 }
-#transaccion .btn-adoptar {
+#Transaction .btn-adoptar {
   background: white;
   border-style: none;
   display: flex;
 
   flex-direction: row;
 }
-#transaccion .decorate {
+#Transaction .decorate {
   display: flex;
   align-content: flex-end;
   width: 100%;
@@ -701,7 +701,7 @@ height:180px;
   background-color: #00a3fe;
   margin-bottom: 0px;
 }
-#transaccion .target button:hover {
+#Transaction .target button:hover {
 
   cursor: pointer;
 } 

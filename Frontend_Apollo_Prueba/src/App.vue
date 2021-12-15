@@ -5,8 +5,8 @@
       <h1>Life Experiences</h1>
       <nav>
 
-       <!--  <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
-        <button v-if="is_auth" v-on:click="loadAccount">Cuenta</button>
+        <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
+        <!--  <button v-if="is_auth" v-on:click="loadAccount">Cuenta</button>
         <button v-if="is_auth" v-on:click="loadPlanes">Planes</button>
         <button v-if="is_auth" v-on:click="loadCategorias">Categorias</button>        
         <button v-if="is_auth" v-on:click="loadTransaction">Transacción</button> -->
@@ -108,8 +108,9 @@ export default {
       this.$router.push({ name: "categorias" });
     },    
 
-    loadTransaction: function () {
+    loadTransaction: function (id) {
       this.$router.push({ name: "transaction"});
+      console.log ("paso 2: ", id);
     },
 
     logOut: function () {

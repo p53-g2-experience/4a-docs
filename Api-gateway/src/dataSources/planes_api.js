@@ -80,7 +80,9 @@ class PlanesAPI extends RESTDataSource {
     }
     //>>> TENER EN CUENTA RESERVABYUSERNAME
     async reservasByUsername(username) {
-        return await this.get(`/reservas/${username}`);
+        let primerReserva=await this.get(`/reservas/${username}`);
+        console.log ("Paso 3 DS: ", primerReserva)
+        return primerReserva
     }
 
     //CREATERESERVAS

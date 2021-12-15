@@ -103,7 +103,7 @@
                 while(auxAllPets.length>0){                    
                     var num = Math.floor((Math.random() * (auxAllPets.length)))                     
                     auxDict.push(auxAllPets[num])                                      
-                    auxAllPets.splice(num,1)                    
+                    auxAllPets.splice(num,1)  
                 }
 
                 let auxList=[]
@@ -119,6 +119,7 @@
             loadSolicitud: function(id){                
                 localStorage.setItem('pet',id)
                 this.$emit('loadSolicitud')
+                // console.log ("paso 1: ", [AllPets])
             },
         },
         

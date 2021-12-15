@@ -8,6 +8,7 @@ import co.misiontic.p53.planes_ms.models.Planes;
 import co.misiontic.p53.planes_ms.models.Reservas;
 import co.misiontic.p53.planes_ms.repositories.PlanesRepository;
 import co.misiontic.p53.planes_ms.repositories.ReservasRepository;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,11 +37,9 @@ public class ReservasController {
     }
 
     @GetMapping("/reservas/{username}")
-    Reservas userReservas(@PathVariable String username){
-
-        /*List<Reservas> reservas = reservasRepository.findByUsername(username);*/
-        return reservasRepository.
-                findById(username).orElseThrow(() -> new DisponibilidadReservaException("No se encontro reserva para el usuario: " + username));
+    List<Reservas> userReservas(@PathVariable String username) {
+/*     Reservas userReservas(@PathVariable String username)  */
+          return reservasRepository.findByUsername(username);
     }
 
     @GetMapping("/reservas/consulta/{codigoPlan}")

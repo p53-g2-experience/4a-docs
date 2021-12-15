@@ -20,7 +20,7 @@ const reservasTypeDefs = gql `
     }
 
     extend type Query {
-        reservasByUsername(username: String!): Reservas
+        reservasByUsername(username: String!): [Reservas]
     }
 
     extend type Mutation{

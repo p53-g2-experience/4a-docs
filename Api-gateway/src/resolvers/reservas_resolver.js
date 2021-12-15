@@ -1,10 +1,14 @@
 const reservasResolver = {
 
     Query: {
-        reservasByUsername: async(_, { usernameSend }, {dataSources, userIdToken}) => {
+        reservasByUsername: async(_, { username }, {dataSources, userIdToken}) => {
             usernameGet = (await dataSources.authAPI.getUser(userIdToken)).username
-        if (usernameSend == usernameGet)
-            return dataSources.planesAPI.reservasByUsername(usernameSend)
+            console.log("paso 1", username,usernameGet,userIdToken)
+        if (username == usernameGet)
+        {
+            console.log("paso 2")
+            return dataSources.planesAPI.reservasByUsername(username)
+        }
         else
             return null
         }
